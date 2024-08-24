@@ -10,7 +10,13 @@
     <input type="text" th:field="*{title}">
     <textarea th:field="*{content}"></textarea>
     <input type="date" th:field="*{period}">
-    <input type="text" th:field="*{importance}">
+    <select id="importance" th:field="*{importance}" required="required">
+        <option value="">選択してください</option>
+        <option value="低">低</option>
+        <option value="中">中</option>
+        <option value="高">高</option>
+    </select>
+
     <button type="submit">作成</button>
 </form>
 
