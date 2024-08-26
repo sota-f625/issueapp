@@ -23,7 +23,7 @@ public class IssueController {
         try {
             issueRepository.insert(issueForm.getTitle(), issueForm.getContent(), issueForm.getPeriod(), issueForm.getImportance());
         } catch (Exception e) {
-            model.addAttribute("errorMessage", e.getMessage());
+            model.addAttribute("errorMessage",  "データベースエラー: " + e.getMessage());
             return "error";
         }
         return "redirect:/";
