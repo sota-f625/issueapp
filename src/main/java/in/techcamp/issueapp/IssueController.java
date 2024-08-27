@@ -38,8 +38,12 @@ public class IssueController {
     }
 
     @GetMapping("/issues/{id}")
-    public String issueDeail(@PathVariable long id, Model model){
+    public String issueDetail(@PathVariable("id") long id, Model model) {
         var issue = issueRepository.findById(id);
+        if (issue == null) {
+            model.addAttribute("errorMessage", "指定されたIDのIssueが見つかりませんでした。");
+            return "error";
+        }
         model.addAttribute("issue", issue);
         return "detail";
     }
