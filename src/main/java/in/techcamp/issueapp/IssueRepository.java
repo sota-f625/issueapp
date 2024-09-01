@@ -25,4 +25,7 @@ public interface IssueRepository {
                 @Param("content") String content,
                 @Param("period") String period,
                 @Param("importance") Character importance);
+
+    @Delete("delete from issues where id=#{id}")
+    void deleteById(Long id);
 }
